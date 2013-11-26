@@ -8,7 +8,7 @@ O presente projeto tem como objetivo o desenvolvimento de sistema de marketing v
 Equipe
 ======
 
-Tiago Tobias Freitas
+Tiago Tobias Freitas - Branch (tobias)
 
 
 
