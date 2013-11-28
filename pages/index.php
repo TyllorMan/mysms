@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>My SMS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
@@ -34,7 +35,7 @@
 
 			  <div class="collapse navbar-collapse pull-right" id="nav-login">
 			    <ul class="nav navbar-nav">
-			      <li ><a href="#">Login</a></li>
+			      <li ><a href="login.php">Login</a></li>
 			    </ul>
 			  </div><!-- /.navbar-collapse -->
 
