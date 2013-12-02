@@ -8,6 +8,7 @@
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/css/parallax-slider.css" rel="stylesheet">
     <link href="../assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-select.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,8 +47,7 @@
 
     <div class="container">
       <div class="page-header">
-        <button type="button" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span>  Create</button>
-        <h1>My messages <small> Lorem Ipsum</small></h1>
+        <h1>Edit message <small> Lorem Ipsum</small></h1>
       </div>
 
       <div class="row">
@@ -56,49 +56,38 @@
               <li class="active"><a href="#">Messages</a></li>
               <li><a href="#">Contact</a></li>
           </ul>
-
-
         </div>
+
         <div class="col-md-10">
           <div class="page-header">
-            <h3>list messages <small> Lorem Ipsum</small></h3>
+            <h3>Edit message <small> Lorem Ipsum</small></h3>
           </div>
-        <table class="table table-hover">
-        <thead>
-          <tr>
-            <th><input type="checkbox"></th>
-            <th>Message</th>
-            <th>Contacts</th>
-            <th>
-              <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-send"></span> Send</button>
-              <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
-              <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span> Delete</button>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>My first message</td>
-            <td> 3 contacts</td>
-            <td> </td>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>My secound message</td>
-            <td> 13 contacts</td>
-            <td> </td>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>Other messages</td>
-            <td> 30 contacts</td>
-            <td> </td>
-          </tr>
-        </tbody>
-      </table>
-
-        </div>
+       <form role="form">
+          <div class="form-group">
+            <label for="title">title</label>
+            <input type="email" class="form-control" id="title" placeholder="Input title">
+          </div>
+          <div class="form-group">
+            <label for="text">Text</label>
+            <textarea class="form-control" id="text" rows="5"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="bs3Select">Contacts selected</label>
+              <select id="bs3Select" class="selectpicker show-tick form-control" multiple data-live-search="true">
+                  <optgroup label="home" data-subtext="home" data-icon="icon-ok">
+                    <option>cow</option>
+                    <option>bull</option>
+                    <option class="get-class" disabled>ox</option>
+                  </optgroup>
+                  <optgroup label="work" data-subtext="work" data-icon="icon-ok">
+                      <option>ASD</option>
+                      <option selected>Bla</option>
+                      <option>Ble</option>
+                  </optgroup>
+              </select>
+            </div>
+          <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span>  Submit</button>
+        </form>
       </div>
       
 
@@ -124,11 +113,11 @@
     <script src="../assets/js/parallax/js/jquery.cslider.js"></script>
     <script src="../assets/js/parallax/js/modernizr.js"></script>
     <script src="../assets/js/index.js"></script>
-
+    <script src="../assets/js/bootstrap-select.min.js"></script>
 
     <script type="text/javascript">
 	    jQuery(document).ready(function() {
-	        $('#da-slider').cslider();          
+            $('.selectpicker').selectpicker();    
 	    });
 		</script>
   
