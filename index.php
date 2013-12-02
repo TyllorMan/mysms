@@ -35,7 +35,8 @@
 
 			  <div class="collapse navbar-collapse pull-right" id="nav-login">
 			    <ul class="nav navbar-nav">
-			      <li ><a href="pages/login.php">Login</a></li>
+			      <li><a href="pages/login.php">Login</a></li>
+				  <li><a href="pages/signup.php">Cadastre-se</a></li>
 			    </ul>
 			  </div><!-- /.navbar-collapse -->
 
@@ -68,11 +69,6 @@
 			        <div class="da-slide">
 			            <h2><i>Lorem Ipsum</i> <br /> <i>Lorem Ipsum Lorem </i></h2>
 			            <p><i>Lorem Ipsum Lorem Ipsum Lorem Ipsum!!!</i> <br /> <i>Lorem Ipsum Lorem Ipsum Lorem Ipsum</i> <br /> <i> Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</i></p>
-			            <div class="da-img span6">
-			                <div class="span6">
-			                    <iframe src="http://player.vimeo.com/video/79668630?color=72c02c" width="100%" height="320" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> 
-			                </div>
-			            </div>
 			        </div>
 			        <nav class="da-arrows">
 			            <span class="da-arrows-prev"></span>
