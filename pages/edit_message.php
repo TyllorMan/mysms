@@ -54,7 +54,7 @@
         <div class="col-md-2">
           <ul class="nav nav-pills nav-stacked">
               <li class="active"><a href="#">Messages</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="contact_list.php">Contact</a></li>
           </ul>
         </div>
 

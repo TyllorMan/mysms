@@ -46,7 +46,7 @@
 
     <div class="container">
       <div class="page-header">
-        <button type="button" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span>  Create</button>
+        <a href="create_message.php" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span>  Create</a>
         <h1>My messages <small> Lorem Ipsum</small></h1>
       </div>
 
@@ -54,7 +54,7 @@
         <div class="col-md-2">
           <ul class="nav nav-pills nav-stacked">
               <li class="active"><a href="#">Messages</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="contact_list.php">Contact</a></li>
           </ul>
 
 
@@ -124,13 +124,6 @@
     <script src="../assets/js/parallax/js/jquery.cslider.js"></script>
     <script src="../assets/js/parallax/js/modernizr.js"></script>
     <script src="../assets/js/index.js"></script>
-
-
-    <script type="text/javascript">
-	    jQuery(document).ready(function() {
-	        $('#da-slider').cslider();          
-	    });
-		</script>
   
   </body>
 </html>
