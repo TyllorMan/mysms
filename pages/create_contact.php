@@ -8,7 +8,7 @@
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/css/parallax-slider.css" rel="stylesheet">
     <link href="../assets/css/custom.css" rel="stylesheet">
-    <link href="../assets/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-tagsinput.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -16,6 +16,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+
   </head>
   <body>
     
@@ -74,20 +75,9 @@
           </div>
           
           <div class="form-group">
-            <label for="bs3Select">Contacts selected</label>
-              <select id="bs3Select" class="selectpicker show-tick form-control" multiple data-live-search="true">
-                  <optgroup label="home" data-subtext="home" data-icon="icon-ok">
-                    <option>cow</option>
-                    <option>bull</option>
-                    <option class="get-class" disabled>ox</option>
-                  </optgroup>
-                  <optgroup label="work" data-subtext="work" data-icon="icon-ok">
-                      <option>ASD</option>
-                      <option>Bla</option>
-                      <option>Ble</option>
-                  </optgroup>
-              </select>
-            </div>
+            <label for="phones">Contacts Phones</label>
+              <input type="text" value="" data-role="tagsinput" placeholder="Add phones" class="form-control" id="phones"/>
+          </div>
           <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span>  Submit</button>
         </form>
       </div>
@@ -112,16 +102,8 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/parallax/js/jquery.cslider.js"></script>
     <script src="../assets/js/parallax/js/modernizr.js"></script>
-    <script src="../assets/js/index.js"></script>
-    <script src="../assets/js/bootstrap-select.min.js"></script>
+    <script src="../assets/js/bootstrap-tagsinput.min.js"></script>
 
-    <script type="text/javascript">
-	    jQuery(document).ready(function() {
-            $('.selectpicker').selectpicker();    
-	    });
-		</script>
-  
   </body>
 </html>
