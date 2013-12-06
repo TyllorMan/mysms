@@ -1,16 +1,15 @@
-mysms
-=====
+Aplicativo MySMS
+======
 
-O presente projeto tem como objetivo o desenvolvimento de sistema de via sms.
-
+O aplicativo será responsável pelo envio de mensagens em massa
 
 
 Equipe
 ======
 
+João Marcos - Branch (jmarcos)
 Tiago Tobias Freitas - Branch (tobias)
 Hanoch Griner - Branch (eugriner)
-
 
 
 Trabalhando com git
