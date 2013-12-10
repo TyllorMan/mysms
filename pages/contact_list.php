@@ -47,7 +47,7 @@
     <div class="container">
       <div class="page-header">
         <a href="create_contact.php" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span>  Create</a>
-        <h1>My messages <small> Lorem Ipsum</small></h1>
+        <h1>My Contacts <small> Lorem Ipsum</small></h1>
       </div>
 
       <div class="row">
