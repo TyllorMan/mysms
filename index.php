@@ -35,7 +35,8 @@
 
 			  <div class="collapse navbar-collapse pull-right" id="nav-login">
 			    <ul class="nav navbar-nav">
-			      <li ><a href="pages/login.php">Login</a></li>
+			      <li><a href="pages/login.php">Login</a></li>
+				  <li><a href="pages/signup.php">Cadastre-se</a></li>
 			    </ul>
 			  </div><!-- /.navbar-collapse -->
 
@@ -56,8 +57,13 @@
 			<div class="slider-inner">
 			    <div id="da-slider" class="da-slider">
 			        <div class="da-slide">
-			            <h2><i>Lorem Ipsum</i> <br /> <i>Lorem Ipsum</i> <br /> <i>Lorem Ipsum</i></h2>
-			            <p><i>Lorem Ipsum</i><br><i>Lorem Ipsum</i></p>
+			            <h2><i>
+							MySMS
+						</i></h2>
+			            <p>
+							<i>Envie mensagens para várias pessoas</i><br/>
+							<i>de forma rápida e fácil.</i>
+						</p>
 			            <div class="da-img span6">
 			                <div class="span6">
 			                    <img src="assets/images/SMS-marketing1.jpg">
@@ -68,11 +74,6 @@
 			        <div class="da-slide">
 			            <h2><i>Lorem Ipsum</i> <br /> <i>Lorem Ipsum Lorem </i></h2>
 			            <p><i>Lorem Ipsum Lorem Ipsum Lorem Ipsum!!!</i> <br /> <i>Lorem Ipsum Lorem Ipsum Lorem Ipsum</i> <br /> <i> Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</i></p>
-			            <div class="da-img span6">
-			                <div class="span6">
-			                    <iframe src="http://player.vimeo.com/video/79668630?color=72c02c" width="100%" height="320" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> 
-			                </div>
-			            </div>
 			        </div>
 			        <nav class="da-arrows">
 			            <span class="da-arrows-prev"></span>
@@ -92,61 +93,27 @@
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
-          <img class="img-thumbnail" src="http://fakeimg.pl/350x200/?text=World&font=lobster" alt="Generic placeholder image">
           <h2>Heading</h2>
           <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-        	<img class="img-thumbnail" src="http://fakeimg.pl/350x200/?text=World&font=lobster" alt="Generic placeholder image">
+        <div class="col-lg-4">        	
           <h2>Heading</h2>
           <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-thumbnail" src="http://fakeimg.pl/350x200/?text=World&font=lobster" alt="Generic placeholder image">
+        <div class="col-lg-4">          
           <h2>Heading</h2>
           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
-      <!-- START THE FEATURETTES -->
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-         <img class="img-thumbnail" src="http://fakeimg.pl/350x200/?text=World&font=lobster" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-5">
-          <img class="img-thumbnail" src="http://fakeimg.pl/350x200/?text=World&font=lobster" alt="Generic placeholder image">
-        </div>
-        <div class="col-md-7">
-          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-
-      <!-- /END THE FEATURETTES -->
-
 
       <!-- FOOTER -->
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>&copy; 2013 UFRN, ECT</p>
       </footer>
 
     </div><!-- /.container -->
