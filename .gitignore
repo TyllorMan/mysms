@@ -2,5 +2,4 @@ db_access/*
 
 db/
 db/*
-
-db/
+pages/db_access/*
