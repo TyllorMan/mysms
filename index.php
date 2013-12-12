@@ -40,15 +40,6 @@
 			    </ul>
 			  </div><!-- /.navbar-collapse -->
 
-			  <!-- Collect the nav links, forms, and other content for toggling -->
-			  <div class="collapse navbar-collapse" id="nav-left">
-			    <ul class="nav navbar-nav">
-			      <li class="active"><a href="#">Home</a></li>
-			      <li><a href="#">Link</a></li>
-			      <li><a href="#">Link</a></li>
-			    </ul>
-			  </div><!-- /.navbar-collapse -->
-
 			</div>
 
 		</nav>
@@ -62,7 +53,8 @@
 						</i></h2>
 			            <p>
 							<i>Envie mensagens para várias pessoas</i><br/>
-							<i>de forma rápida e fácil.</i>
+							<i>de forma rápida e fácil. O cadastro é gratuito.</i><br/>
+							<i>Entre agora e começe a enviar mensagens.</i><br/>
 						</p>
 			            <div class="da-img span6">
 			                <div class="span6">
@@ -72,8 +64,11 @@
 			        </div>
 
 			        <div class="da-slide">
-			            <h2><i>Lorem Ipsum</i> <br /> <i>Lorem Ipsum Lorem </i></h2>
-			            <p><i>Lorem Ipsum Lorem Ipsum Lorem Ipsum!!!</i> <br /> <i>Lorem Ipsum Lorem Ipsum Lorem Ipsum</i> <br /> <i> Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</i></p>
+			            <h2><i>Diferentes finalidades</i></h2>
+			            <p>
+							<i>O MySMS pode ser utilizado para enviar mensagens que, em geral, são enviadas frequentemente </i><br/>
+							<i>ou em SMS Marketing, podendo ter um maior alcance.</i>
+						</p>
 			        </div>
 			        <nav class="da-arrows">
 			            <span class="da-arrows-prev"></span>
@@ -93,19 +88,22 @@
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>Sobre</h2>
+          <p>O MySMS é uma ferramenta que permite criar mensagens e enviá-las para vários contatos.
+			Esses contatos podem ser separados em grupos pelo usuário e as mensagens criadas são salvas de forma
+			que possam ser editadas ou enviadas quando quiser.
+		  </p>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">        	
-          <h2>Heading</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+		<div class="col-lg-4">
+          <h2>SMS Marketing</h2>
+          <p>Devido ao grande alcance oferecido pelos dispositivos móveis, é comum empresas enviarem mensagens com informações sobre promoções.
+			Com o MySMS, você pode utilizar essa estratégia em favor do seu negócio.
+		  </p>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">          
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-lg-4">
+          <h2>Cadastro</h2>
+          <p>O cadastro é rápido, fácil e gratuito. Entre e comece já a aproveitar os serviços do MySMS.
+		  </p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
