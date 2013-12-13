@@ -36,6 +36,7 @@
 			  <div class="collapse navbar-collapse pull-right" id="nav-login">
 			    <ul class="nav navbar-nav">
 			      <li class="active" ><a href="#">Bem vindo, User 1</a></li>
+				  <li><a href="#">Logout</a></li>
 			    </ul>
 			  </div><!-- /.navbar-collapse -->
 
@@ -46,7 +47,7 @@
 
     <div class="container">
       <div class="page-header">
-        <button type="button" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span>  Create</button>
+        <button type="button" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Criar Mensagem</button>
         <h2>Minhas Mensagens</h2>
       </div>
 
@@ -70,9 +71,9 @@
             <th>Mensagem</th>
             <th>Contatos</th>
             <th>
-              <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-send"></span> Send</button>
-              <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
-              <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+              <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-send"></span> Enviar</button>
+              <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
+              <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span> Deletar</button>
             </th>
           </tr>
         </thead>
@@ -108,8 +109,7 @@
     <hr class="featurette-divider">
     <div class="container">
       <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>&copy; 2013 UFRN/ECT &middot;
       </footer>
 
     </div><!-- /.container -->
