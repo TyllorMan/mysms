@@ -30,12 +30,12 @@
 			      <span class="icon-bar"></span>
 			      <span class="icon-bar"></span>
 			    </button>
-			    <a class="navbar-brand" href="#">MySMS </a>
+			    <a class="navbar-brand" href="../index.php">MySMS</a>
 			  </div>
 
 			  <div class="collapse navbar-collapse pull-right" id="nav-login">
 			    <ul class="nav navbar-nav">
-			      <li class="active" ><a href="#">Bem vindo User 1</a></li>
+			      <li class="active" ><a href="#">Bem vindo, User 1</a></li>
 			    </ul>
 			  </div><!-- /.navbar-collapse -->
 
@@ -47,28 +47,28 @@
     <div class="container">
       <div class="page-header">
         <button type="button" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span>  Create</button>
-        <h1>My messages <small> Lorem Ipsum</small></h1>
+        <h2>Minhas Mensagens</h2>
       </div>
 
       <div class="row">
         <div class="col-md-2">
           <ul class="nav nav-pills nav-stacked">
-              <li class="active"><a href="#">Messages</a></li>
-              <li><a href="#">Contact</a></li>
+              <li class="active"><a href="#">Mensagens</a></li>
+              <li><a href="#">Contatos</a></li>
           </ul>
 
 
         </div>
         <div class="col-md-10">
           <div class="page-header">
-            <h3>list messages <small> Lorem Ipsum</small></h3>
+            <h3>Mensagens</h3>
           </div>
         <table class="table table-hover">
         <thead>
           <tr>
             <th><input type="checkbox"></th>
-            <th>Message</th>
-            <th>Contacts</th>
+            <th>Mensagem</th>
+            <th>Contatos</th>
             <th>
               <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-send"></span> Send</button>
               <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
