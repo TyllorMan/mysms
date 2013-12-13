@@ -22,8 +22,8 @@
 
 		 <form class="form-signin" method="post" action="valida.php">
         <h2 class="form-signin-heading">Faça login!!!</h2>
-        <input type="text" class="form-control" placeholder="Email address" name="usuario" required autofocus>
-        <input type="password" class="form-control" name="senha" placeholder="Password" required>
+        <input type="text" class="form-control" placeholder="Email" name="usuario" required autofocus>
+        <input type="password" class="form-control" name="senha" placeholder="Senha" required>
         <label class="checkbox">
           <input type="checkbox" value="remember-me"> Remember me
         </label>
