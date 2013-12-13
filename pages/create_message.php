@@ -8,6 +8,7 @@
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/css/parallax-slider.css" rel="stylesheet">
     <link href="../assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-select.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,7 +31,7 @@
 			      <span class="icon-bar"></span>
 			      <span class="icon-bar"></span>
 			    </button>
-			    <a class="navbar-brand" href="../index.php">MySMS</a>
+			    <a class="navbar-brand" href="#">MySMS </a>
 			  </div>
 
 			  <div class="collapse navbar-collapse pull-right" id="nav-login">
@@ -47,8 +48,7 @@
 
     <div class="container">
       <div class="page-header">
-        <button type="button" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Criar Mensagem</button>
-        <h2>Minhas Mensagens</h2>
+        <h2>Nova Mensagem</h2>
       </div>
 
       <div class="row">
@@ -57,49 +57,35 @@
               <li class="active"><a href="message_list.php">Mensagens</a></li>
               <li><a href="contact_list.php">Contatos</a></li>
           </ul>
-
-
         </div>
+
         <div class="col-md-10">
-          <div class="page-header">
-            <h3>Mensagens</h3>
+       <form role="form">
+          <div class="form-group">
+            <label for="title">Título</label>
+            <input type="email" class="form-control" id="title" placeholder="Inserir Título">
           </div>
-        <table class="table table-hover">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Mensagem</th>
-            <th>Contatos</th>
-            <th>
-              <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-send"></span> Enviar</button>
-              <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
-              <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span> Deletar</button>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>My first message</td>
-            <td> 3 contacts</td>
-            <td> </td>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>My secound message</td>
-            <td> 13 contacts</td>
-            <td> </td>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>Other messages</td>
-            <td> 30 contacts</td>
-            <td> </td>
-          </tr>
-        </tbody>
-      </table>
-
-        </div>
+          <div class="form-group">
+            <label for="text">Conteúdo</label>
+            <textarea class="form-control" id="text" rows="5"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="bs3Select">Selecionar Contatos</label>
+              <select id="bs3Select" class="selectpicker show-tick form-control" multiple data-live-search="true">
+                  <optgroup label="home" data-subtext="home" data-icon="icon-ok">
+                    <option>cow</option>
+                    <option>bull</option>
+                    <option class="get-class" disabled>ox</option>
+                  </optgroup>
+                  <optgroup label="work" data-subtext="work" data-icon="icon-ok">
+                      <option>ASD</option>
+                      <option>Bla</option>
+                      <option>Ble</option>
+                  </optgroup>
+              </select>
+            </div>
+          <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span>  Concluir</button>
+        </form>
       </div>
       
 
@@ -124,11 +110,11 @@
     <script src="../assets/js/parallax/js/jquery.cslider.js"></script>
     <script src="../assets/js/parallax/js/modernizr.js"></script>
     <script src="../assets/js/index.js"></script>
-
+    <script src="../assets/js/bootstrap-select.min.js"></script>
 
     <script type="text/javascript">
 	    jQuery(document).ready(function() {
-	        $('#da-slider').cslider();          
+            $('.selectpicker').selectpicker();    
 	    });
 		</script>
   
