@@ -32,21 +32,17 @@
 			    </button>
 			    <a class="navbar-brand" href="#">MySMS </a>
 			  </div>
-
+			<!-- Login e Cadastro -->
 			  <div class="collapse navbar-collapse pull-right" id="nav-login">
 			    <ul class="nav navbar-nav">
 			      <li class="dropdown">
 		            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Log In <strong class="caret"></strong></a>
 		            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
 		                <form action="pages/login.php" method="post" class="registration_form"> 
-		                    <label for="name">Email :</label>
-		                    <input type="text" id="e-mail" name="e-mail" size="25" /> 
-		                    <br /><br /> 
-		                    <label for="password">Password:</label>
-     						 <input type="password" id="Password" name="password" size="25" />
-		                    <br /><br /> 
-		                    <input type="hidden" name="formsubmitted" value="TRUE" />
-      						<input type="submit" value="Login" /> 
+		                    <input type="text" class="form-control" placeholder="Email" name="e-mail" required autofocus>
+					        <input type="password" class="form-control" name="password" placeholder="Senha" required>
+					        <input type="hidden" name="formsubmitted" value="TRUE" />
+					        <button class="btn btn-lg btn-primary btn-block" value="Login" type="submit">Entrar</button>
 		                </form> 
 		            </div>
 		          </li>

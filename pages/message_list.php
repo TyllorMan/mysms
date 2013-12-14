@@ -42,7 +42,7 @@
 
 			  <div class="collapse navbar-collapse pull-right" id="nav-login">
 			    <ul class="nav navbar-nav">
-			      <li class="active" ><a href="#">Bem vindo User 1</a></li>
+			      <li class="active" ><a href="#">Bem vindo <?php echo htmlentities($_SESSION['name'], ENT_QUOTES, 'UTF-8'); ?>!</a></li>
 			    </ul>
 			  </div><!-- /.navbar-collapse -->
 
