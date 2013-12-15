@@ -49,7 +49,7 @@
 
     <div class="container">
       <div class="page-header">
-        <h2>Novo Contato</h2>
+        <h2>Editar Contato</h2>
       </div>
 
       <div class="row">
@@ -64,17 +64,17 @@
        <form role="form">
           <div class="form-group">
             <label for="name">Nome</label>
-            <input type="text" class="form-control" id="name" placeholder="Inserir Nome">
+            <input type="text" class="form-control" id="name" placeholder="Nome">
           </div>
 
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Inserir Email">
+            <input type="email" class="form-control" id="email" placeholder="Email">
           </div>
           
           <div class="form-group">
             <label for="phones">Telefone</label>
-              <input type="text" value="" data-role="tagsinput" placeholder="Adicionar Telefone" class="form-control" id="phones"/>
+              <input type="text" value="" data-role="tagsinput" placeholder="Telefone" class="form-control" id="phones"/>
           </div>
           <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span>  Concluir</button>
         </form>
