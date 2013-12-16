@@ -35,16 +35,21 @@
 			<!-- Login e Cadastro -->
 			  <div class="collapse navbar-collapse pull-right" id="nav-login">
 			    <ul class="nav navbar-nav">
-			      <li class="dropdown">
-		            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Log In <strong class="caret"></strong></a>
-		            <div class="dropdown-menu dropMod">
-		                <form action="pages/login.php" method="post" class="registration_form"> 
-		                    <input type="text" id="email" class="form-control" placeholder="Email" name="e-mail" required autofocus>
-					        <input type="password" id="password" class="form-control" name="password" placeholder="Senha" required>
+			      <li >
+		          <form action="pages/login.php" method="post" class="form-inline registration_form " role="form" style="padding-top: 10px;"> 
+              	<div class="form-group">
+              		<label class="sr-only" for="email">Email address</label>
+                  <input type="email" id="email" class="form-control input-sm" placeholder="Email" name="e-mail" required autofocus>
+                </div>
+                <div class="form-group">
+                	<label class="sr-only" for="pass">password</label>
+					        <input type="password" class="form-control input-sm" name="password" id="pass" placeholder="Senha" required>
+					      </div>
+					      <div class="form-group">
 					        <input type="hidden" name="formsubmitted" value="TRUE" />
-					        <button id="submitB" class="btn btn-lg btn-primary btn-block" value="Login" type="submit">Entrar</button>
-		                </form> 
-		            </div>
+					      </div>
+					        <button class="btn btn-primary btn-xs" value="Login" type="submit">Entrar</button>
+              </form>
 		          </li>
 				  <li><a href="pages/signup.php">Cadastre-se</a></li>
 			    </ul>
