@@ -32,10 +32,10 @@
           echo 'Query Failed ';
         }
         if (mysqli_affected_rows($dbc) == 1) { //If the Insert Query was successfull.
-          echo '<div class="success">'.$name.' is add to your contact list!</div>';
+          echo '<div class="success">'.$name.' foi adicionado à sua lista de contatos!</div>';
         } else { // If it did not run OK.
-          echo '<div class="errormsgbox">You could not be registered due to a system
-            error. We apologize for any inconvenience.</div>';
+          echo '<div class="errormsgbox">Você pode não estar registrado devido a um erro no sistema.
+            Desculpe-nos pelo incoveniente</div>';
         }
       } else {//If the "error" array contains error msg , display them
         echo '<div class="errormsgbox"> <ol>';
