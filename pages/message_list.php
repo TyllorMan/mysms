@@ -3,8 +3,16 @@
     session_start();
     if(!isset($_SESSION['name'])){
          header("Location: login.php");
+    } else {
+      include ('db_access/database_connection.php');
+        if (mysqli_connect_errno()){
+          echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+      $ID = htmlentities($_SESSION['id'], ENT_QUOTES, 'UTF-8');
+      $result = mysqli_query($con,"SELECT * FROM text WHERE user_id = $ID ORDER BY id");
     }
 ?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -56,24 +64,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>My first message</td>
-            <td> 3 contacts</td>
-            <td> </td>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>My secound message</td>
-            <td> 13 contacts</td>
-            <td> </td>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>Other messages</td>
-            <td> 30 contacts</td>
-            <td> </td>
-          </tr>
+          <?php
+            while($row = mysqli_fetch_array($result))
+              {
+                $resulttemp = mysqli_query($con,"SELECT * FROM message WHERE text_id = " . $row['id'] . "");
+                $num_rows = mysqli_num_rows($resulttemp);
+                echo"<tr>";
+                  echo"<td><input type='checkbox'></td>";
+                  echo"<td>" . $row['title'] . "</td>";
+                  echo"<td>" . $num_rows . " contatos</td>";
+                  echo"<td> </td>";
+                echo"</tr>";
+              }
+            mysqli_close($con);
+          ?>
         </tbody>
       </table>
 
