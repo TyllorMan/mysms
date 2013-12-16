@@ -103,6 +103,7 @@ echo '<div class="errormsgbox"> <ol>';
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/css/parallax-slider.css" rel="stylesheet">
     <link href="../assets/css/login.css" rel="stylesheet">
+	<link href="../assets/css/CustomLogin.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
