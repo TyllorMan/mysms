@@ -76,37 +76,34 @@
 
     <div class="container">
       <div class="page-header">
-        <h1>New Contatc <small> Lorem Ipsum</small></h1>
+        <h2>Novo Contato</h2>
       </div>
 
       <div class="row">
         <div class="col-md-2">
           <ul class="nav nav-pills nav-stacked">
-              <li><a href="message_list.php">Messages</a></li>
-              <li class="active"><a href="contact_list.php">Contact</a></li>
+              <li><a href="message_list.php">Mensagens</a></li>
+              <li class="active"><a href="contact_list.php">Contatos</a></li>
           </ul>
         </div>
 
         <div class="col-md-10">
-          <div class="page-header">
-            <h3>New Contact<small></small></h3>
-          </div>
         <form class="form-signin" method="post" action="create_contact.php">
           <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Name" name="name" required autofocus/>
+            <label for="name">Nome</label>
+            <input type="text" class="form-control" id="name" placeholder="Nome" name="name" required autofocus/>
           </div>
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control" id="email" placeholder="Email" name="email"/>
           </div>
           <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="text" name="phone" placeholder="Phone" class="form-control" id="phones" onkeypress="return isNumberKey(event)" required/>
+            <label for="phone">Telefone</label>
+            <input type="text" name="phone" placeholder="Telefone" class="form-control" id="phones" onkeypress="return isNumberKey(event)" required/>
           </div>
           <input type="hidden" name="user_id" value=<?php echo htmlentities($_SESSION['id'], ENT_QUOTES, 'UTF-8'); ?> />
           <input type="hidden" name="formsubmitted" value="TRUE" />
-          <button type="submit" class="btn btn-success" value="Register"><span class="glyphicon glyphicon-plus-sign"></span>  Submit</button>
+          <button type="submit" class="btn btn-success" value="Register"><span class="glyphicon glyphicon-plus-sign"></span>  Concluir</button>
         </form>
       </div>
       
@@ -117,8 +114,7 @@
     <hr class="featurette-divider">
     <div class="container">
       <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>&copy; 2013 UFRN, ECT</p>
       </footer>
 
     </div><!-- /.container -->
