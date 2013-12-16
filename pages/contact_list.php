@@ -3,6 +3,13 @@
     session_start();
     if(!isset($_SESSION['name'])){
          header("Location: login.php");
+    } else {
+      include ('db_access/database_connection.php');
+        if (mysqli_connect_errno()){
+          echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+      $ID = htmlentities($_SESSION['id'], ENT_QUOTES, 'UTF-8');
+      $result = mysqli_query($con,"SELECT * FROM contact WHERE user_id = $ID ORDER BY name");
     }
 ?>
 
@@ -25,9 +32,7 @@
     <![endif]-->
   </head>
   <body>
-    
     <?php include 'navbar.php'; ?>
-
     <div class="container">
       <div class="page-header">
         <a href="create_contact.php" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span>  Adicionar Contato</a>
@@ -47,7 +52,7 @@
         <table class="table table-hover">
         <thead>
           <tr>
-            <th></th>
+            <th><input type="checkbox"></th>
             <th>Nome</th>
             <th>Email</th>
             <th>Telefone</th>
@@ -58,31 +63,24 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>Contact 1</td>
-            <td>johnDoe@mail.com</td>
-            <td>9999-0000 </td>
-            <td> </td>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>Contact 2</td>
-            <td>johnDoe@mail.com</td>
-            <td>9999-0000 </td>
-            <td> </td>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>Contact 3</td>
-            <td>johnDoe@mail.com</td>
-            <td>9999-0000 </td>
-            <td> </td>
-          </tr>
+          <?php
+            while($row = mysqli_fetch_array($result))
+              {
+                echo"<tr>";
+                  echo"<td><input type='checkbox'></td>";
+                  echo"<td>" . $row['name'] . "</td>";
+                  echo"<td>" . $row['email'] . "</td>";
+                  echo"<td>" . $row['phone'] . "</td>";
+                  echo"<td> </td>";
+                echo"</tr>";
+              }
+            mysqli_close($con);
+          ?>
         </tbody>
       </table>
 
         </div>
+    
       </div>
       
 
