@@ -16,7 +16,7 @@
 			  <div class="collapse navbar-collapse pull-right" id="nav-login">
 			    <ul class="nav navbar-nav">
 			      <li class="active" ><a href="#">Bem vindo, <?php echo htmlentities($_SESSION['name'], ENT_QUOTES, 'UTF-8'); ?>!</a></li>
-				  <li><a href="#">Logout </a></li>
+				  <li><a href="logout.php">Logout </a></li>
 			    </ul>
 			  </div><!-- /.navbar-collapse -->
 
