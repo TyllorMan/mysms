@@ -32,7 +32,7 @@
       }
       if (empty($error)) {
         $user_id = $_POST['user_id'];
-        $query_insert_text = "INSERT INTO `text` (`user_id`, `content`) VALUES ('$user_id', '$content')";
+        $query_insert_text = "INSERT INTO `text` (`user_id`, `content`, `title`) VALUES ('$user_id', '$content', '$title')";
         $result_insert_text= mysqli_query($dbc, $query_insert_text);
         $text_id = mysqli_insert_id($dbc);
         // Next, create insert statements
