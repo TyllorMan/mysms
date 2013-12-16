@@ -25,29 +25,24 @@
       } else {
         $content = $_POST['content'];//else assign it a variable
       }
-      if (empty($_POST['contacts'])) {
-        $error[] = 'Please enter at list one contact';
-      } else {
-        $contacts = $_POST['contacts'];
-      }
+      //if (empty($_POST['contacts'])) {
+     //   $error[] = 'Please enter at list one contact';
+     // } else {
+      foreach($_POST['contacts'] as $v) { 
+         echo $v;
+      } 
+        //$contacts = $_POST['contacts'];
+     // }
       if (empty($error)) {
         $user_id = $_POST['user_id'];
-        $query_insert_text = "INSERT INTO `text` (`user_id`, `content`) VALUES ('$user_id', '$content')";
-        $result_insert_text= mysqli_query($dbc, $query_insert_text);
-        $text_id = mysqli_insert_id($dbc);
-        // Next, create insert statements
-        $query_insert_message  = "INSERT INTO `message` (`text_id`, `contact_id`) VALUES ";
-        foreach ($contacts as $contact_id) {
-          $query_insert_message .= "('".$text_id."', ";
-          $query_insert_message .= "'".$contact_id."'),";
-        }
-        $query_insert_message = substr($query_insert_message, 0, -1);
-        $result_insert_message = mysqli_query($dbc, $query_insert_message);
-
-        if (!$result_insert_text) {
+        echo $title; echo $content; echo $user_id;
+        $query_insert_contact = "INSERT INTO `text` (`user_id`, `content`) VALUES ('$user_id', '$content')";
+        $result_insert_contact = mysqli_query($dbc, $query_insert_contact);
+        echo mysql_insert_id();
+        if (!$result_insert_contact) {
           echo 'Query Failed ';
         }
-        if (mysqli_affected_rows($dbc) != 0) { //If the Insert Query was successfull.
+        if (mysqli_affected_rows($dbc) == 1) { //If the Insert Query was successfull.
           echo '<div class="success">'.$title.' is add to your message list!</div>';
         } else { // If it did not run OK.
           echo '<div class="errormsgbox">You could not be registered due to a system
@@ -101,16 +96,16 @@
        <form role="form" method="post" action="create_message.php" id="text">
           <div class="form-group">
             <label for="title">Título</label>
-            <input type="text" class="form-control" id="title" placeholder="Título da Mensagem" name="title" required>
+            <input type="text" class="form-control" id="title" placeholder="Título da Mensagem" name="title">
           </div>
           <div class="form-group">
             <label for="text">Conteúdo</label>
-            <textarea class="form-control" id="text" rows="5" maxlength="160" name="content" form="text" required></textarea>
+            <textarea class="form-control" id="text" rows="5" maxlength="160" name="content" form="text"></textarea>
           </div>
           <div class="form-group">
             <label for="bs3Select">Selecionar Contatos</label>
               <select id="bs3Select" class="selectpicker show-tick form-control" multiple data-live-search="true" name="contacts[]">
-                  <optgroup label="Todos" data-subtext="Todos" data-icon="icon-ok">
+                  <optgroup label="Todos" data-subtext="Todos" data-icon="icon-ok" name="a2">
                     <?php
                       while($row = mysqli_fetch_array($result))
                       {
