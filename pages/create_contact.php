@@ -1,3 +1,53 @@
+<?php
+  ob_start();
+    session_start();
+    if(!isset($_SESSION['name'])){
+      header("Location: login.php");
+    } else if (isset($_POST['formsubmitted'])) {
+      include ('db_access/database_connection.php');
+      $error = array();//Declare An Array to store any error message
+      if (empty($_POST['name'])) {
+        $error[] = 'Please Enter a name ';//add to array "error"
+      } else {
+        $name = $_POST['name'];//else assign it a variable
+      }
+      if (isset($_SESSION['email'])) {
+          if (preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $_POST['email'])) {
+           //regular expression for email validation
+            $email = $_POST['email'];
+          } else {
+            $email = NULL;
+        }
+      }
+      if (empty($_POST['phone'])) {
+        $error[] = 'Please enter a number';
+      } else {
+        $phone = $_POST['phone'];
+      }
+      if (empty($error)) {
+        $user_id = $_POST['user_id'];
+        $query_insert_contact = "INSERT INTO `contact` (`user_id`, `name`, `email`, `phone`) VALUES ('$user_id', '$name', '$email', '$phone')";
+        $result_insert_contact = mysqli_query($dbc, $query_insert_contact);
+        if (!$result_insert_contact) {
+          echo 'Query Failed ';
+        }
+        if (mysqli_affected_rows($dbc) == 1) { //If the Insert Query was successfull.
+          echo '<div class="success">'.$name.' is add to your contact list!</div>';
+        } else { // If it did not run OK.
+          echo '<div class="errormsgbox">You could not be registered due to a system
+            error. We apologize for any inconvenience.</div>';
+        }
+      } else {//If the "error" array contains error msg , display them
+        echo '<div class="errormsgbox"> <ol>';
+        foreach ($error as $key => $values) {
+          echo '  <li>'.$values.'</li>';
+        }
+        echo '</ol></div>';
+      }
+      mysqli_close($dbc);//Close the DB Connection
+    } // End of the main Submit conditional
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,6 +59,7 @@
     <link href="../assets/css/parallax-slider.css" rel="stylesheet">
     <link href="../assets/css/custom.css" rel="stylesheet">
     <link href="../assets/css/bootstrap-tagsinput.css" rel="stylesheet">
+    <script language='javascript' src='js/util.js'></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,31 +71,8 @@
   </head>
   <body>
     
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-
-    	<div class="container">
-
-    		<!-- Brand and toggle get grouped for better mobile display -->
-			  <div class="navbar-header">
-			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="brand">
-			      <span class="sr-only">Toggle navigation</span>
-			      <span class="icon-bar"></span>
-			      <span class="icon-bar"></span>
-			      <span class="icon-bar"></span>
-			    </button>
-			    <a class="navbar-brand" href="#">MySMS </a>
-			  </div>
-
-			  <div class="collapse navbar-collapse pull-right" id="nav-login">
-			    <ul class="nav navbar-nav">
-			      <li class="active" ><a href="#">Bem vindo User 1</a></li>
-			    </ul>
-			  </div><!-- /.navbar-collapse -->
-
-
-			</div>
-
-		</nav>
+    <!-- Inclui o navbar.php que esta dentro de pages -->
+    <?php include 'navbar.php'; ?>
 
     <div class="container">
       <div class="page-header">
@@ -61,24 +89,24 @@
 
         <div class="col-md-10">
           <div class="page-header">
-            <h3>New Contact <small> Lorem Ipsum</small></h3>
+            <h3>New Contact<small></small></h3>
           </div>
-       <form role="form">
+        <form class="form-signin" method="post" action="create_contact.php">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Input Name">
+            <input type="text" class="form-control" id="name" placeholder="Name" name="name" required autofocus/>
           </div>
-
           <div class="form-group">
-            <label for="email">email</label>
-            <input type="email" class="form-control" id="email" placeholder="Input email">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Email" name="email"/>
           </div>
-          
           <div class="form-group">
-            <label for="phones">Contacts Phones</label>
-              <input type="text" value="" data-role="tagsinput" placeholder="Add phones" class="form-control" id="phones"/>
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" placeholder="Phone" class="form-control" id="phones" onkeypress="return isNumberKey(event)" required/>
           </div>
-          <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span>  Submit</button>
+          <input type="hidden" name="user_id" value=<?php echo htmlentities($_SESSION['id'], ENT_QUOTES, 'UTF-8'); ?> />
+          <input type="hidden" name="formsubmitted" value="TRUE" />
+          <button type="submit" class="btn btn-success" value="Register"><span class="glyphicon glyphicon-plus-sign"></span>  Submit</button>
         </form>
       </div>
       
