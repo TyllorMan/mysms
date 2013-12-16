@@ -1,86 +1,55 @@
 <?php
-
-include ('db_access/database_connection.php');
-if (isset($_POST['formsubmitted'])) {
-    // Initialize a session:
-session_start();
-    $error = array();//this aaray will store all error messages
-      if (empty($_POST['e-mail'])) {//if the email supplied is empty 
-        $error[] = 'You forgot to enter  your Email ';
-    } else {
-        if (preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $_POST['e-mail'])) {
-           
-            $email = $_POST['e-mail'];
-        } else {
-             $error[] = 'Your EMail Address is invalid  ';
-        }
-    }
-
-
-    if (empty($_POST['password'])) {
-        $error[] = 'Please Enter Your Password ';
-    } else {
-        $password = $_POST['password'];
-        $password = sha1($password);
-    }
-
-
-       if (empty($error))//if the array is empty , it means no error found
-    { 
-
-       
-
-        $query_check_credentials = "SELECT * FROM user WHERE email='$email' AND password='$password'"; /*AND activation IS NULL";*/
-   
-        
-
-        $result_check_credentials = mysqli_query($dbc, $query_check_credentials);
-        if(!$result_check_credentials){//If the QUery Failed 
-            echo 'Query Failed ';
-        }
-
-        if (@mysqli_num_rows($result_check_credentials) == 1)//if Query is successfull 
-        { // A match was made.
-
-           
-
-
-            $_SESSION = mysqli_fetch_array($result_check_credentials, MYSQLI_ASSOC);//Assign the result of this query to SESSION Global Variable
-           
-            header("Location: message_list.php");
-          
-
-        }else
-        { 
-            
-            $msg_error= 'Either Your Account is inactive or Email address /Password is Incorrect';
-        }
-
-    }  else {
-        
-        
-
-echo '<div class="errormsgbox"> <ol>';
-        foreach ($error as $key => $values) {
-            
-            echo '  <li>'.$values.'</li>';
-
-
-       
-        }
-        echo '</ol></div>';
-
-    }
-    
-    
-    if(isset($msg_error)){
-        
-        echo '<div class="warning">'.$msg_error.' </div>';
-    }
-    /// var_dump($error);
-    mysqli_close($dbc);
-
-} // End of the main Submit conditional.
+    include ('db_access/database_connection.php');
+    if (mysqli_connect_errno()) {
+          echo '<div class="alert alert-danger">Falha ao tentar conectar o MySQL!' . mysqli_connect_error() . '</div>';
+    } else {  
+        if (isset($_POST['formsubmitted'])) {
+            // Initialize a session:
+            session_start();
+            $error = array();//this aaray will store all error messages
+              if (empty($_POST['e-mail'])) {//if the email supplied is empty 
+                $error[] = 'Preencha seu email!';
+            } else {
+                if (preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $_POST['e-mail'])) {
+                    $email = $_POST['e-mail'];
+                } else {
+                     $error[] = 'Email inválido!';
+                }
+            }
+            if (empty($_POST['password'])) {
+                $error[] = 'Preencha seu senha!';
+            } else {
+                $password = $_POST['password'];
+                $password = sha1($password);
+            }
+               if (empty($error))//if the array is empty , it means no error found
+            { 
+                $query_check_credentials = "SELECT * FROM user WHERE email='$email' AND password='$password'"; /*AND activation IS NULL";*/
+                $result_check_credentials = mysqli_query($dbc, $query_check_credentials);
+                if(!$result_check_credentials){//If the QUery Failed 
+                    echo '<div class="alert alert-danger">Falha na query!</div>';
+                }
+                if (@mysqli_num_rows($result_check_credentials) == 1)//if Query is successfull 
+                { // A match was made.       
+                    $_SESSION = mysqli_fetch_array($result_check_credentials, MYSQLI_ASSOC);//Assign the result of this query to SESSION Global Variable
+                    header("Location: message_list.php");
+                } else { 
+                    $msg_error = 'Senha incorreta ou conta inativa!';
+                }
+            } else {
+                echo '<div class="errormsgbox"> <ol>';
+                foreach ($error as $key => $values) {
+                    echo '  <li>'.$values.'</li>';           
+                }
+                echo '</ol></div>';
+            }
+            if(isset($msg_error)){
+                echo '<div class="alert alert-danger">'.$msg_error.' </div>';
+            }
+            /// var_dump($error);
+            mysqli_close($dbc);
+        } // End of the main Submit conditional.
+    } // End of the conection conditional.
 
 
 

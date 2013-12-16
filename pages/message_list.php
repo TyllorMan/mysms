@@ -6,7 +6,7 @@
     } else {
       include ('db_access/database_connection.php');
         if (mysqli_connect_errno()){
-          echo "Failed to connect to MySQL: " . mysqli_connect_error();
+          echo '<div class="alert alert-danger">Falha ao tentar conectar o MySQL!' . mysqli_connect_error() . '</div>';
         }
       $ID = htmlentities($_SESSION['id'], ENT_QUOTES, 'UTF-8');
       $result = mysqli_query($con,"SELECT * FROM text WHERE user_id = $ID ORDER BY id");

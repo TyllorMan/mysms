@@ -6,7 +6,7 @@
     } else {
       include ('db_access/database_connection.php');
         if (mysqli_connect_errno()){
-          echo "Failed to connect to MySQL: " . mysqli_connect_error();
+          echo '<div class="alert alert-danger">Falha ao tentar conectar o MySQL!' . mysqli_connect_error() . '</div>';
         } else {
           $ID = htmlentities($_SESSION['id'], ENT_QUOTES, 'UTF-8');
           $result = mysqli_query($con,"SELECT * FROM contact WHERE user_id = $ID ORDER BY name");
@@ -16,17 +16,17 @@
     {
       $error = array();//Declare An Array to store any error message
       if (empty($_POST['title'])) {
-        $error[] = 'Please enter a title ';//add to array "error"
+        $error[] = 'Preencha o título!';//add to array "error"
       } else {
         $title = $_POST['title'];//else assign it a variable
       }
       if (empty($_POST['content'])) {
-        $error[] = 'Please enter a content ';//add to array "error"
+        $error[] = 'Preencha o conteúdo!';//add to array "error"
       } else {
         $content = $_POST['content'];//else assign it a variable
       }
       if (empty($_POST['contacts'])) {
-        $error[] = 'Please enter at list one contact';
+        $error[] = 'Selecione ao menos um contato!';
       } else {
         $contacts = $_POST['contacts'];
       }
@@ -45,16 +45,15 @@
         $result_insert_message = mysqli_query($dbc, $query_insert_message);
 
         if (!$result_insert_text) {
-          echo 'Query Failed ';
+          echo '<div class="alert alert-danger">Falha na query.</div>';
         }
         if (mysqli_affected_rows($dbc) != 0) { //If the Insert Query was successfull.
-          echo '<div class="success">'.$title.' is add to your message list!</div>';
+          echo '<div class="alert alert-success">'.$title.' foi adicionado a sua lista de mensagens!</div>';
         } else { // If it did not run OK.
-          echo '<div class="errormsgbox">You could not be registered due to a system
-            error. We apologize for any inconvenience.</div>';
+          echo '<div class="alert alert-danger">Ops! Estamos com algum problema. Descupe-nos pelo incoveniente.</div>';
         }
       } else {//If the "error" array contains error msg , display them
-        echo '<div class="errormsgbox"> <ol>';
+        echo '<div class="alert alert-danger"> <ol>';
         foreach ($error as $key => $values) {
           echo '  <li>'.$values.'</li>';
         }

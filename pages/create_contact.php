@@ -5,46 +5,49 @@
       header("Location: login.php");
     } else if (isset($_POST['formsubmitted'])) {
       include ('db_access/database_connection.php');
-      $error = array();//Declare An Array to store any error message
-      if (empty($_POST['name'])) {
-        $error[] = 'Please Enter a name ';//add to array "error"
+      if (mysqli_connect_errno()) {
+          echo '<div class="alert alert-danger">Falha ao tentar conectar o MySQL!' . mysqli_connect_error() . '</div>';
       } else {
-        $name = $_POST['name'];//else assign it a variable
-      }
-      if (isset($_SESSION['email'])) {
-          if (preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $_POST['email'])) {
-           //regular expression for email validation
-            $email = $_POST['email'];
-          } else {
-            $email = NULL;
+        $error = array();//Declare An Array to store any error message
+        if (empty($_POST['name'])) {
+          $error[] = 'Preencha o nome!';//add to array "error"
+        } else {
+          $name = $_POST['name'];//else assign it a variable
         }
-      }
-      if (empty($_POST['phone'])) {
-        $error[] = 'Please enter a number';
-      } else {
-        $phone = $_POST['phone'];
-      }
-      if (empty($error)) {
-        $user_id = $_POST['user_id'];
-        $query_insert_contact = "INSERT INTO `contact` (`user_id`, `name`, `email`, `phone`) VALUES ('$user_id', '$name', '$email', '$phone')";
-        $result_insert_contact = mysqli_query($dbc, $query_insert_contact);
-        if (!$result_insert_contact) {
-          echo 'Query Failed ';
+        if (isset($_SESSION['email'])) {
+            if (preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $_POST['email'])) {
+             //regular expression for email validation
+              $email = $_POST['email'];
+            } else {
+              $email = NULL;
+          }
         }
-        if (mysqli_affected_rows($dbc) == 1) { //If the Insert Query was successfull.
-          echo '<div class="success">'.$name.' is add to your contact list!</div>';
-        } else { // If it did not run OK.
-          echo '<div class="errormsgbox">You could not be registered due to a system
-            error. We apologize for any inconvenience.</div>';
+        if (empty($_POST['phone'])) {
+          $error[] = 'Preencha o numero!';
+        } else {
+          $phone = $_POST['phone'];
         }
-      } else {//If the "error" array contains error msg , display them
-        echo '<div class="errormsgbox"> <ol>';
-        foreach ($error as $key => $values) {
-          echo '  <li>'.$values.'</li>';
+        if (empty($error)) {
+          $user_id = $_POST['user_id'];
+          $query_insert_contact = "INSERT INTO `contact` (`user_id`, `name`, `email`, `phone`) VALUES ('$user_id', '$name', '$email', '$phone')";
+          $result_insert_contact = mysqli_query($dbc, $query_insert_contact);
+          if (!$result_insert_contact) {
+            echo '<div class="alert alert-danger">Falha na query.</div>';
+          }
+          if (mysqli_affected_rows($dbc) == 1) { //If the Insert Query was successfull.
+            echo '<div class="alert alert-success">'.$name.' foi adicionado a sua lista de contatos!</div>';
+          } else { // If it did not run OK.
+            echo '<div class="alert alert-danger">Ops! Estamos com algum problema. Descupe-nos pelo incoveniente.</div>';
+          }
+        } else {//If the "error" array contains error msg , display them
+          echo '<div class="alert alert-danger"> <ol>';
+          foreach ($error as $key => $values) {
+            echo '  <li>'.$values.'</li>';
+          }
+          echo '</ol></div>';
         }
-        echo '</ol></div>';
-      }
-      mysqli_close($dbc);//Close the DB Connection
+        mysqli_close($dbc);//Close the DB Connection
+      } //End of the conection conditional
     } // End of the main Submit conditional
 ?>
 

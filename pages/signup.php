@@ -1,78 +1,74 @@
 <?php
-include ('db_access/database_connection.php');
-if (isset($_POST['formsubmitted'])) {
-    $error = array();//Declare An Array to store any error message  
-    if (empty($_POST['name'])) {//if no name has been supplied 
-        $error[] = 'Please Enter a name ';//add to array "error"
-    } else {
-        $name = $_POST['name'];//else assign it a variable
-    }
-    if (empty($_POST['e-mail'])) {
-        $error[] = 'Please Enter your Email ';
-    } else {
-        if (preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $_POST['e-mail'])) {
-           //regular expression for email validation
-            $email = $_POST['e-mail'];
-        } else {
-             $error[] = 'Your EMail Address is invalid  ';
-        }
-    }
-    if (empty($_POST['password'])) {
-        $error[] = 'Please Enter Your Password ';
-    } else {
-        $password = $_POST['password'];
-    }
-    if (empty($error)) //send to Database if there's no error '
-    { // If everything's OK...
-        // Make sure the email address is available:
-        $query_verify_email = "SELECT * FROM user  WHERE email ='$email'";
-        $result_verify_email = mysqli_query($dbc, $query_verify_email);
-        if (!$result_verify_email) {//if the Query Failed ,similar to if($result_verify_email==false)
-            echo ' Database Error Occured ';
-        }
-        if (mysqli_num_rows($result_verify_email) == 0) { // IF no previous user is using this email .
-
-            // Create a unique  activation code:
-            $activation = "";/*md5(uniqid(rand(), true));*/
-            $password = sha1($password);
-            $query_insert_user = "INSERT INTO `user` ( `name`, `email`, `password`, `activation`) VALUES ( '$name', '$email', '$password', '$activation')";
-            $result_insert_user = mysqli_query($dbc, $query_insert_user);
-            if (!$result_insert_user) {
-                echo 'Query Failed ';
+    if (isset($_POST['formsubmitted'])) {
+        if (mysqli_connect_errno()) {
+              echo '<div class="alert alert-danger">Falha ao tentar conectar o MySQL!' . mysqli_connect_error() . '</div>';
+          } else {
+            $error = array();//Declare An Array to store any error message  
+            if (empty($_POST['name'])) {//if no name has been supplied 
+                $error[] = 'Preencha o nome!';//add to array "error"
+            } else {
+                $name = $_POST['name'];//else assign it a variable
             }
-            if (mysqli_affected_rows($dbc) == 1) { //If the Insert Query was successfull.
-
-                /*// Send the email:
-                $message = " To activate your account, please click on this link:\n\n";
-                $message .= WEBSITE_URL . '/activate.php?email=' . urlencode($email) . "&key=$activation";
-                mail($email, 'Registration Confirmation', $message, 'From: ismaakeel@gmail.com');
-
-                // Flush the buffered output.*/
-
-                // Finish the page:
-                echo '<div class="success"> '.$name.', you are ready to Login!</div>';
-                echo "<meta http-equiv=\"refresh\" content=\"2;url=login.php\"/>";
-
-            } else { // If it did not run OK.
-                echo '<div class="errormsgbox">You could not be registered due to a system
-                  error. We apologize for any
-                  inconvenience.</div>';
+            if (empty($_POST['e-mail'])) {
+                $error[] = 'Preencha o email!';
+            } else {
+                if (preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $_POST['e-mail'])) {
+                   //regular expression for email validation
+                    $email = $_POST['e-mail'];
+                } else {
+                     $error[] = 'Email inválido!';
+                }
             }
-        } else { // The email address is not available.
-            echo '<div class="errormsgbox">That email
-                  address has already been registered.
-                  </div>';
-        }
-    } else {//If the "error" array contains error msg , display them
-echo '<div class="errormsgbox"> <ol>';
-        foreach ($error as $key => $values) {
-            
-            echo '  <li>'.$values.'</li>';
-        }
-        echo '</ol></div>';
-    }
-    mysqli_close($dbc);//Close the DB Connection
-} // End of the main Submit conditional.
+            if (empty($_POST['password'])) {
+                $error[] = 'Preencha a senha!';
+            } else {
+                $password = $_POST['password'];
+            }
+            if (empty($error)) //send to Database if there's no error '
+            { // If everything's OK...
+                // Make sure the email address is available:
+                $query_verify_email = "SELECT * FROM user  WHERE email ='$email'";
+                $result_verify_email = mysqli_query($dbc, $query_verify_email);
+                if (!$result_verify_email) {//if the Query Failed ,similar to if($result_verify_email==false)
+                    echo '<div class="alert alert-danger">Falha na query.</div>';
+                }
+                if (mysqli_num_rows($result_verify_email) == 0) { // IF no previous user is using this email .
+                    // Create a unique  activation code:
+                    $activation = "";/*md5(uniqid(rand(), true));*/
+                    $password = sha1($password);
+                    $query_insert_user = "INSERT INTO `user` ( `name`, `email`, `password`, `activation`) VALUES ( '$name', '$email', '$password', '$activation')";
+                    $result_insert_user = mysqli_query($dbc, $query_insert_user);
+                    if (!$result_insert_user) {
+                       echo '<div class="alert alert-danger">Falha na query.</div>';
+                    }
+                    if (mysqli_affected_rows($dbc) == 1) { //If the Insert Query was successfull.
+                        /*// Send the email:
+                        $message = " To activate your account, please click on this link:\n\n";
+                        $message .= WEBSITE_URL . '/activate.php?email=' . urlencode($email) . "&key=$activation";
+                        mail($email, 'Registration Confirmation', $message, 'From: ismaakeel@gmail.com');
+
+                        // Flush the buffered output.*/
+
+                        // Finish the page:
+                        echo '<div class="success"> '.$name.', you are ready to Login!</div>';
+                        echo "<meta http-equiv=\"refresh\" content=\"2;url=login.php\"/>";
+
+                    } else { // If it did not run OK.
+                        echo echo '<div class="alert alert-danger">Ops! Estamos com algum problema. Descupe-nos pelo incoveniente.</div>';
+                    }
+                } else { // The email address is not available.
+                    echo '<div class="alert alert-danger">Esse email já foi registrado!</div>';
+                }
+            } else {//If the "error" array contains error msg , display them
+        echo '<div class="alert alert-danger"> <ol>';
+                foreach ($error as $key => $values) {
+                    echo '  <li>'.$values.'</li>';
+                }
+                echo '</ol></div>';
+            }
+            mysqli_close($dbc);//Close the DB Connection
+        } //End of the conection conditional.
+    } // End of the main Submit conditional.
 ?>
 
 <!DOCTYPE html>
