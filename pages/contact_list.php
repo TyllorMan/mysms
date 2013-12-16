@@ -3,6 +3,13 @@
     session_start();
     if(!isset($_SESSION['name'])){
          header("Location: login.php");
+    } else {
+      include ('db_access/database_connection.php');
+        if (mysqli_connect_errno()){
+          echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+      $ID = htmlentities($_SESSION['id'], ENT_QUOTES, 'UTF-8');
+      $result = mysqli_query($con,"SELECT * FROM contact WHERE user_id = $ID ORDER BY name");
     }
 ?>
 
@@ -25,33 +32,7 @@
     <![endif]-->
   </head>
   <body>
-    
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-
-    	<div class="container">
-
-    		<!-- Brand and toggle get grouped for better mobile display -->
-			  <div class="navbar-header">
-			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="brand">
-			      <span class="sr-only">Toggle navigation</span>
-			      <span class="icon-bar"></span>
-			      <span class="icon-bar"></span>
-			      <span class="icon-bar"></span>
-			    </button>
-			    <a class="navbar-brand" href="#">MySMS </a>
-			  </div>
-
-			  <div class="collapse navbar-collapse pull-right" id="nav-login">
-			    <ul class="nav navbar-nav">
-			      <li class="active" ><a href="#">Bem vindo User 1</a></li>
-			    </ul>
-			  </div><!-- /.navbar-collapse -->
-
-
-			</div>
-
-		</nav>
-
+    <?php include 'navbar.php'; ?>
     <div class="container">
       <div class="page-header">
         <a href="create_contact.php" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span>  Create</a>
@@ -85,31 +66,24 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>Contact 1</td>
-            <td>johnDoe@mail.com</td>
-            <td>9999-0000 </td>
-            <td> </td>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>Contact 2</td>
-            <td>johnDoe@mail.com</td>
-            <td>9999-0000 </td>
-            <td> </td>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>Contact 3</td>
-            <td>johnDoe@mail.com</td>
-            <td>9999-0000 </td>
-            <td> </td>
-          </tr>
+          <?php
+            while($row = mysqli_fetch_array($result))
+              {
+                echo"<tr>";
+                  echo"<td><input type='checkbox'></td>";
+                  echo"<td>" . $row['name'] . "</td>";
+                  echo"<td>" . $row['email'] . "</td>";
+                  echo"<td>" . $row['phone'] . "</td>";
+                  echo"<td> </td>";
+                echo"</tr>";
+              }
+            mysqli_close($con);
+          ?>
         </tbody>
       </table>
 
         </div>
+    
       </div>
       
 
