@@ -35,7 +35,7 @@
 			<!-- Login e Cadastro -->
 			  <div class="collapse navbar-collapse pull-right" id="nav-login">
 			    <ul class="nav navbar-nav">
-			      <li >
+			      <li>
 		          <form action="pages/login.php" method="post" class="form-inline registration_form " role="form" style="padding-top: 10px;"> 
               	<div class="form-group">
               		<label class="sr-only" for="email">Email address</label>

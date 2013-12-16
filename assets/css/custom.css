@@ -4,11 +4,3 @@ body { padding-top: 50px; }
 	padding: 15px;
 	padding-bottom: 0px;
 }
-
-#email, #password, #submitB{
-	margin-bottom:5px;
-}
-
-#email, #password{
-	width:250px;
-}
