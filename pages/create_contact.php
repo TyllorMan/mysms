@@ -59,7 +59,7 @@
     <link href="../assets/css/parallax-slider.css" rel="stylesheet">
     <link href="../assets/css/custom.css" rel="stylesheet">
     <link href="../assets/css/bootstrap-tagsinput.css" rel="stylesheet">
-    <script language='javascript' src='js/util.js'></script>
+    <script language='javascript' src='../assets/js/util.js'></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
