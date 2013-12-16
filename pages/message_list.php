@@ -28,33 +28,30 @@
   <?php include 'navbar.php'; ?>
     <div class="container">
       <div class="page-header">
-        <a href="create_message.php" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span>  Create</a>
-        <h1>My messages <small> Lorem Ipsum</small></h1>
+        <a href="create_message.php" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span>  Criar Mensagem</a>
+        <h2>Minhas Mensagens</h2>
       </div>
 
       <div class="row">
         <div class="col-md-2">
           <ul class="nav nav-pills nav-stacked">
-              <li class="active"><a href="#">Messages</a></li>
-              <li><a href="contact_list.php">Contact</a></li>
+              <li class="active"><a href="#">Mensagens</a></li>
+              <li><a href="contact_list.php">Contatos</a></li>
           </ul>
 
 
         </div>
         <div class="col-md-10">
-          <div class="page-header">
-            <h3>list messages <small> Lorem Ipsum</small></h3>
-          </div>
         <table class="table table-hover">
         <thead>
           <tr>
-            <th><input type="checkbox"></th>
-            <th>Message</th>
-            <th>Contacts</th>
+            <th></th>
+            <th>Mensagem</th>
+            <th>Contatos</th>
             <th>
-              <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-send"></span> Send</button>
-              <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
-              <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+              <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-send"></span> Enviar</button>
+              <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
+              <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span> Deletar</button>
             </th>
           </tr>
         </thead>
@@ -90,8 +87,7 @@
     <hr class="featurette-divider">
     <div class="container">
       <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>&copy; 2013 UFRN, ECT</p>
       </footer>
 
     </div><!-- /.container -->
