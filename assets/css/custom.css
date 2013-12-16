@@ -5,10 +5,6 @@ body { padding-top: 50px; }
 	padding-bottom: 0px;
 }
 
-#email, #password, #submitB{
-	margin-bottom:5px;
-}
-
 #email, #password{
 	width:250px;
 }
