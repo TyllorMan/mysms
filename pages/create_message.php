@@ -3,6 +3,58 @@
     session_start();
     if(!isset($_SESSION['name'])){
          header("Location: login.php");
+    } else {
+      include ('db_access/database_connection.php');
+        if (mysqli_connect_errno()){
+          echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        } else {
+          $ID = htmlentities($_SESSION['id'], ENT_QUOTES, 'UTF-8');
+          $result = mysqli_query($con,"SELECT * FROM contact WHERE user_id = $ID ORDER BY name");
+        }
+    }
+    if (isset($_POST['formsubmitted']))
+    {
+      $error = array();//Declare An Array to store any error message
+      if (empty($_POST['title'])) {
+        $error[] = 'Please enter a title ';//add to array "error"
+      } else {
+        $title = $_POST['title'];//else assign it a variable
+      }
+      if (empty($_POST['content'])) {
+        $error[] = 'Please enter a content ';//add to array "error"
+      } else {
+        $content = $_POST['content'];//else assign it a variable
+      }
+      //if (empty($_POST['contacts'])) {
+     //   $error[] = 'Please enter at list one contact';
+     // } else {
+      foreach($_POST['contacts'] as $v) { 
+         echo $v;
+      } 
+        //$contacts = $_POST['contacts'];
+     // }
+      if (empty($error)) {
+        $user_id = $_POST['user_id'];
+        echo $title; echo $content; echo $user_id;
+        $query_insert_contact = "INSERT INTO `text` (`user_id`, `content`) VALUES ('$user_id', '$content')";
+        $result_insert_contact = mysqli_query($dbc, $query_insert_contact);
+        echo mysql_insert_id();
+        if (!$result_insert_contact) {
+          echo 'Query Failed ';
+        }
+        if (mysqli_affected_rows($dbc) == 1) { //If the Insert Query was successfull.
+          echo '<div class="success">'.$title.' is add to your message list!</div>';
+        } else { // If it did not run OK.
+          echo '<div class="errormsgbox">You could not be registered due to a system
+            error. We apologize for any inconvenience.</div>';
+        }
+      } else {//If the "error" array contains error msg , display them
+        echo '<div class="errormsgbox"> <ol>';
+        foreach ($error as $key => $values) {
+          echo '  <li>'.$values.'</li>';
+        }
+        echo '</ol></div>';
+      }
     }
 ?>
 
@@ -41,35 +93,34 @@
         </div>
 
         <div class="col-md-10">
-       <form role="form">
+       <form role="form" method="post" action="create_message.php" id="text">
           <div class="form-group">
             <label for="title">Título</label>
-            <input type="email" class="form-control" id="title" placeholder="Título da Mensagem">
+            <input type="text" class="form-control" id="title" placeholder="Título da Mensagem" name="title">
           </div>
           <div class="form-group">
             <label for="text">Conteúdo</label>
-            <textarea class="form-control" id="text" rows="5"></textarea>
+            <textarea class="form-control" id="text" rows="5" maxlength="160" name="content" form="text"></textarea>
           </div>
           <div class="form-group">
             <label for="bs3Select">Selecionar Contatos</label>
-              <select id="bs3Select" class="selectpicker show-tick form-control" multiple data-live-search="true">
-                  <optgroup label="home" data-subtext="home" data-icon="icon-ok">
-                    <option>cow</option>
-                    <option>bull</option>
-                    <option class="get-class" disabled>ox</option>
-                  </optgroup>
-                  <optgroup label="work" data-subtext="work" data-icon="icon-ok">
-                      <option>ASD</option>
-                      <option>Bla</option>
-                      <option>Ble</option>
+              <select id="bs3Select" class="selectpicker show-tick form-control" multiple data-live-search="true" name="contacts[]">
+                  <optgroup label="Todos" data-subtext="Todos" data-icon="icon-ok" name="a2">
+                    <?php
+                      while($row = mysqli_fetch_array($result))
+                      {
+                        echo"<option value=". $row['id'] . ">" . $row['name'] . "</option>";
+                      }
+                      mysqli_close($con);
+                    ?>
                   </optgroup>
               </select>
             </div>
-          <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span>  Criar</button>
+            <input type="hidden" name="formsubmitted" value="TRUE" />
+            <input type="hidden" name="user_id" value=<?php echo htmlentities($_SESSION['id'], ENT_QUOTES, 'UTF-8'); ?> />
+          <button type="submit" class="btn btn-success" value="Register"><span class="glyphicon glyphicon-plus-sign"></span>  Criar</button>
         </form>
       </div>
-      
-
 
     </div><!-- /.container -->
       <!-- FOOTER -->
